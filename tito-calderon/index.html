@@ -1,16 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Tito Calderón</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tito Calderón - Tienda de cafeteras italianas</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<h1>Tito Calderón</h1>
-<a href="carrito.html">Ver Carrito</a>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo-dot"></div>
+    <div>
+      <div class="brand-title">Tito Calderón</div>
+      <div class="brand-sub">Tienda de cafeteras italianas</div>
+    </div>
+  </div>
 
-<div id="catalogo"></div>
+  <nav class="nav">
+    <a class="navlink active" href="index.html">Catálogo</a>
+    <a class="navlink" href="carrito.html">Carrito</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Elegí tu cafetera italiana ideal</h1>
+    <p>Modelos clásicos y métodos icónicos. Simple, elegante y bien italiano.</p>
+
+    <div class="filters">
+      <input id="buscador" class="input" placeholder="Buscar… (moka, espresso, prensa)" />
+      <select id="filtro" class="input">
+        <option value="todos">Todas</option>
+        <option value="Moka">Moka</option>
+        <option value="Sifón">Sifón</option>
+        <option value="Espresso">Espresso</option>
+        <option value="Chemex">Chemex</option>
+        <option value="Prensa Francesa">Prensa Francesa</option>
+        <option value="Turca">Turca</option>
+      </select>
+      <button id="btnBuscar" class="btn">Filtrar</button>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+  <div class="section-title">
+    <h2>Catálogo</h2>
+    <div class="ribbon">
+      <span class="g"></span><span class="w"></span><span class="r"></span>
+    </div>
+  </div>
+
+  <div id="catalogo" class="grid"></div>
+</main>
+
+<footer class="footer">
+  <div class="ribbon mini">
+    <span class="g"></span><span class="w"></span><span class="r"></span>
+  </div>
+  <p>© Tito Calderón</p>
+</footer>
 
 <script src="js/productos.js"></script>
 <script src="js/index.js"></script>

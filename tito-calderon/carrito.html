@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Carrito</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tito Calderón - Tienda de cafeteras italianas</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<a href="index.html">Seguir comprando</a>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo-dot"></div>
+    <div>
+      <div class="brand-title">Tito Calderón</div>
+      <div class="brand-sub">Tienda de cafeteras italianas</div>
+    </div>
+  </div>
 
-<h2>Carrito</h2>
-<div id="carrito"></div>
-<h3 id="total"></h3>
-<button onclick="vaciar()">Vaciar carrito</button>
+  <nav class="nav">
+    <a class="navlink" href="index.html">Catálogo</a>
+    <a class="navlink active" href="carrito.html">Carrito</a>
+  </nav>
+</header>
 
+<main class="container">
+  <div class="section-title">
+    <h2>Carrito</h2>
+    <div class="ribbon">
+      <span class="g"></span><span class="w"></span><span class="r"></span>
+    </div>
+  </div>
+
+  <div id="carritoBox"></div>
+</main>
+
+<footer class="footer">
+  <div class="ribbon mini">
+    <span class="g"></span><span class="w"></span><span class="r"></span>
+  </div>
+  <p>© Tito Calderón</p>
+</footer>
+
+<script src="js/productos.js"></script>
 <script src="js/carrito.js"></script>
 </body>
 </html>
