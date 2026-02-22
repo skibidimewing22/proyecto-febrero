@@ -1,0 +1,31 @@
+body {
+  font-family: Arial;
+  background-color: #111;
+  color: white;
+  text-align: center;
+}
+
+.card {
+  border: 1px solid #444;
+  padding: 10px;
+  margin: 15px;
+  display: inline-block;
+  width: 200px;
+  background: #222;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: #00cc88;
+  text-decoration: none;
+}
+
+button {
+  padding: 8px;
+  background: #00cc88;
+  border: none;
+  cursor: pointer;
+}
