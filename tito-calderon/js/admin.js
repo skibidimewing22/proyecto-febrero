@@ -1,26 +1,21 @@
-const gate = document.getElementById("gate");
 const gateMsg = document.getElementById("gateMsg");
-const adminPanel = document.getElementById("adminPanel");
+const panel = document.getElementById("panel");
 const listEl = document.getElementById("list");
 const msgEl = document.getElementById("msg");
 
 function requireAdmin() {
   if (!isAdmin()) {
-    gateMsg.textContent = "Acceso denegado. Iniciá sesión como admin en Login.";
-    adminPanel.style.display = "none";
+    gateMsg.textContent = "No estás logueado como admin. Andá a Login (admin@tito.com / admin123).";
+    panel.style.display = "none";
     return false;
   }
-  gate.style.display = "none";
-  adminPanel.style.display = "block";
+  gateMsg.textContent = "Acceso admin ✅";
+  panel.style.display = "block";
   return true;
 }
 
 function renderList() {
   const items = loadProducts();
-  if (items.length === 0) {
-    listEl.innerHTML = `<p class="desc">No hay productos.</p>`;
-    return;
-  }
 
   listEl.innerHTML = items.map(p => `
     <div style="display:flex; gap:12px; align-items:center; padding:10px; border:1px solid rgba(255,255,255,.10); border-radius:16px; background: rgba(0,0,0,.15);">
@@ -38,8 +33,8 @@ function renderList() {
   listEl.querySelectorAll("[data-del]").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = Number(btn.dataset.del);
-      const items = loadProducts().filter(x => Number(x.id) !== id);
-      saveProducts(items);
+      const next = loadProducts().filter(x => Number(x.id) !== id);
+      saveProducts(next);
       renderList();
     });
   });
@@ -71,29 +66,21 @@ document.getElementById("btnAdd").addEventListener("click", async () => {
   }
 
   let imagen = imgUrl;
-  if (!imagen && imgFile) {
-    // guarda imagen como base64 en localStorage
-    imagen = await fileToDataURL(imgFile);
-  }
+  if (!imagen && imgFile) imagen = await fileToDataURL(imgFile);
   if (!imagen) {
     msgEl.textContent = "Poné una imagen por URL o subí un archivo.";
     return;
   }
 
   const items = loadProducts();
-  const nuevo = {
+  items.push({
     id: nextProductId(items),
-    nombre,
-    precio,
-    imagen,
-    descripcion,
-    categoria
-  };
+    nombre, precio, imagen, descripcion, categoria
+  });
 
-  items.push(nuevo);
   saveProducts(items);
+  msgEl.textContent = "Producto agregado ✅";
 
-  // limpiar
   document.getElementById("nombre").value = "";
   document.getElementById("precio").value = "";
   document.getElementById("categoria").value = "";
@@ -101,10 +88,7 @@ document.getElementById("btnAdd").addEventListener("click", async () => {
   document.getElementById("imgUrl").value = "";
   document.getElementById("imgFile").value = "";
 
-  msgEl.textContent = "Producto agregado ✅";
   renderList();
 });
 
-if (requireAdmin()) {
-  renderList();
-}
+if (requireAdmin()) renderList();

@@ -27,44 +27,44 @@
 
 <main class="container">
   <div class="section-title">
-    <h2>Administrar productos</h2>
+    <h2>Admin: Agregar / Eliminar</h2>
     <div class="ribbon"><span class="g"></span><span class="w"></span><span class="r"></span></div>
   </div>
 
-  <div id="gate" class="card">
+  <div class="card">
     <div class="card-body">
-      <p class="desc" id="gateMsg">Chequeando sesión…</p>
+      <p id="gateMsg" class="desc">Chequeando sesión…</p>
     </div>
   </div>
 
-  <div id="adminPanel" style="display:none;">
+  <div id="panel" style="display:none; margin-top:16px;">
     <div class="card">
       <div class="card-body">
         <span class="tag">Agregar producto</span>
 
         <div class="filters" style="margin-top:12px;">
-          <input id="nombre" class="input" placeholder="Nombre (Ej: Moka)" />
-          <input id="precio" class="input" placeholder="Precio (Ej: 18999)" type="number" min="0" />
-          <input id="categoria" class="input" placeholder="Categoría (Ej: Moka)" />
+          <input id="nombre" class="input" placeholder="Nombre" />
+          <input id="precio" class="input" placeholder="Precio" type="number" min="0" />
+          <input id="categoria" class="input" placeholder="Categoría" />
         </div>
 
         <div class="filters" style="margin-top:10px;">
-          <input id="desc" class="input" placeholder="Descripción" style="min-width: 100%;" />
+          <input id="desc" class="input" placeholder="Descripción" style="min-width:100%;" />
         </div>
 
         <div class="filters" style="margin-top:10px;">
-          <input id="imgUrl" class="input" placeholder="Imagen por URL (opcional)" style="min-width: 360px;" />
+          <input id="imgUrl" class="input" placeholder="Imagen por URL (opcional)" style="min-width:360px;" />
           <input id="imgFile" class="input" type="file" accept="image/*" />
           <button id="btnAdd" class="btn">Agregar</button>
         </div>
 
-        <p class="desc" id="msg"></p>
+        <p id="msg" class="desc" style="margin-top:10px;"></p>
       </div>
     </div>
 
     <div class="card" style="margin-top:16px;">
       <div class="card-body">
-        <span class="tag">Lista</span>
+        <span class="tag">Productos</span>
         <div id="list" style="display:grid; gap:10px; margin-top:12px;"></div>
       </div>
     </div>
