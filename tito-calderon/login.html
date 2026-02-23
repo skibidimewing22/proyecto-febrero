@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Tito Calderón</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo-dot"></div>
+    <div>
+      <div class="brand-title">Tito Calderón</div>
+      <div class="brand-sub">Tienda de cafeteras italianas</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a class="navlink" href="index.html">Catálogo</a>
+    <a class="navlink" href="carrito.html">Carrito</a>
+    <a class="navlink active" href="login.html">Login</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="section-title">
+    <h2>Iniciar sesión</h2>
+    <div class="ribbon"><span class="g"></span><span class="w"></span><span class="r"></span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <p class="desc">Para administrar productos usá el usuario admin (demo).</p>
+
+      <div class="filters">
+        <input id="email" class="input" placeholder="Email" />
+        <input id="pass" class="input" placeholder="Contraseña" type="password" />
+        <button id="btnLogin" class="btn">Entrar</button>
+        <button id="btnLogout" class="navlink">Salir</button>
+      </div>
+
+      <p id="msg" class="desc" style="margin-top:12px;"></p>
+      <p class="desc"><strong>Admin demo:</strong> admin@tito.com / admin123</p>
+
+      <div style="margin-top:10px;">
+        <a class="navlink" href="admin.html">Ir a Admin →</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/auth.js"></script>
+<script>
+  const msg = document.getElementById("msg");
+
+  document.getElementById("btnLogin").onclick = () => {
+    const r = login(document.getElementById("email").value, document.getElementById("pass").value);
+    msg.textContent = r.ok ? "Listo ✅" : ("Error: " + r.error);
+  };
+
+  document.getElementById("btnLogout").onclick = () => {
+    logout();
+    msg.textContent = "Sesión cerrada.";
+  };
+</script>
+</body>
+</html>

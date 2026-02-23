@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - Tito Calderón</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo-dot"></div>
+    <div>
+      <div class="brand-title">Tito Calderón</div>
+      <div class="brand-sub">Panel Admin</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a class="navlink" href="index.html">Catálogo</a>
+    <a class="navlink" href="carrito.html">Carrito</a>
+    <a class="navlink" href="login.html">Login</a>
+    <a class="navlink active" href="admin.html">Admin</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="section-title">
+    <h2>Administrar productos</h2>
+    <div class="ribbon"><span class="g"></span><span class="w"></span><span class="r"></span></div>
+  </div>
+
+  <div id="gate" class="card">
+    <div class="card-body">
+      <p class="desc" id="gateMsg">Chequeando sesión…</p>
+    </div>
+  </div>
+
+  <div id="adminPanel" style="display:none;">
+    <div class="card">
+      <div class="card-body">
+        <span class="tag">Agregar producto</span>
+
+        <div class="filters" style="margin-top:12px;">
+          <input id="nombre" class="input" placeholder="Nombre (Ej: Moka)" />
+          <input id="precio" class="input" placeholder="Precio (Ej: 18999)" type="number" min="0" />
+          <input id="categoria" class="input" placeholder="Categoría (Ej: Moka)" />
+        </div>
+
+        <div class="filters" style="margin-top:10px;">
+          <input id="desc" class="input" placeholder="Descripción" style="min-width: 100%;" />
+        </div>
+
+        <div class="filters" style="margin-top:10px;">
+          <input id="imgUrl" class="input" placeholder="Imagen por URL (opcional)" style="min-width: 360px;" />
+          <input id="imgFile" class="input" type="file" accept="image/*" />
+          <button id="btnAdd" class="btn">Agregar</button>
+        </div>
+
+        <p class="desc" id="msg"></p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="card-body">
+        <span class="tag">Lista</span>
+        <div id="list" style="display:grid; gap:10px; margin-top:12px;"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/auth.js"></script>
+<script src="js/productos.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

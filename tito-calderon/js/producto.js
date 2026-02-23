@@ -3,7 +3,7 @@ const detalle = document.getElementById("detalle");
 const params = new URLSearchParams(window.location.search);
 const id = Number(params.get("id"));
 
-const producto = productos.find(p => p.id === id);
+const producto = loadProducts().find(p => Number(p.id) === id);
 
 function getCarrito() {
   return JSON.parse(localStorage.getItem("carrito")) || [];
